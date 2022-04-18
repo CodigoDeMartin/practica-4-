@@ -1,0 +1,92 @@
+program{
+    PelearLaBatalla()
+}
+
+procedure  EnviarAliadosParaDuplicarEnemigos(){
+    /*
+    Proposito: Duplica la cantidad de aliados en el tablero por cada enemigo que haya.
+    Paramétro:niguna
+    Precondición:ninguna
+    */
+    repeat( dobleDeLaCantidadDeEnemigos() ){
+        PonerAliadoEnLaCeldaActual()
+    }
+}
+procedure PonerAliadoEnLaCeldaActual(){
+    /* 
+    Propósito: Poner un aliado en la celda actual
+    Paramétro:ninguno
+    Observación: Un aliado se representa con una bolita negra.
+    Precondición:ninguna
+    */
+    Poner(Negro)
+}
+function dobleDeLaCantidadDeEnemigos(){
+    /*
+    Propósito: Describe el doble de la cantidad de enemigos que hay en la celda actual.
+    Paramétro:ninguno
+    Precondición:ninguna
+    */
+    return ( nroBolitas(Rojo) * 2 )
+}
+
+
+// ejercicio b)
+
+
+procedure PelearLaBatalla(){
+    /*
+    Propósito: Simular una batalla.
+    Paramétro:ninguno
+    Precondición:
+    */
+    SacarAliadosMuertosDeLaCeldaActual()
+    SacarEnemigosMuertosDeLaCeldaActual()
+}
+procedure SacarEnemigosMuertosDeLaCeldaActual(){
+    /*
+    Proposito: Sacar a los enemigos muertos de la celda actual.
+    Paramétros:ninguno
+    Precondición:
+     >nunguna
+     >
+    */
+    Sacar__Veces(Rojo, cantidadDeEnemigosMuertos() )
+}
+procedure SacarAliadosMuertosDeLaCeldaActual(){
+    /*
+    Proposito: Sacar a los aliados muertos de la celda actual 
+    Paramétros:ninguno
+    Precondición:
+     >ninguna
+    */
+    Sacar__Veces( Negro, cantidadDeAliadosMuertos() )
+}
+
+
+function cantidadDeEnemigosMuertos(){
+    /* 
+    Propósito: describe la cantidad de enemigos muertos en la celda actual.
+    Parametro:ninguno
+    Precondición:
+     >ninguna
+    */
+    return ( (3 div 2) * nroBolitas(Negro)  )
+}
+
+function cantidadDeAliadosMuertos(){
+    /* 
+    Propósito: describe la cantidad de aliados muertos en la celda actual.
+    Parametro:ninguno
+    Precondición:
+     >ninguna
+    */
+    return(  (2 div 3 ) * nroBolitas(Rojo) )
+}
+
+procedure Sacar__Veces( color, veces){
+    /* */
+    repeat (veces) {
+        Sacar(color)
+    }
+}

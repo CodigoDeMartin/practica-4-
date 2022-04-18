@@ -1,0 +1,24 @@
+procedure Mover_SegúnColor_(dirección,color){
+	/*
+	Propósito: Mover el cabezal en la dirección "dirección" segun el color "color" de la bolita en el tablero 
+	           donde se encuentra el cabezal.
+	Paramétro:
+	 > dirección tipo Dirección, es la dirección a la cual se moverá el cabezal.
+	 > color tipo Dirección, es el color de la bolitas que leerá el tablero para moverse.
+	Precondición:
+	 -debe haber almenos la cantidad de celdas en la dirección "dirección" dada segun el color "color" de la bolita en la celda actual.
+	*/
+	repeat(cantidadDeCeldasAMoverseSegunColor_(color)){
+	 Mover(dirección)
+	 }
+}
+
+function cantidadDeCeldasAMoverseSegunColor_(colorDeLaBolita){
+	/*
+	Propósito: describir la cantida de celdas que debe moverse el cabezal.
+	Paramétro:
+	 colorDeLaBolita tipo Color, es el color de las bolitas que deceamos contar.
+	Precondición:niguna
+	*/
+	return (nroBolitas(colorDeLaBolita))
+}

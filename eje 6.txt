@@ -1,0 +1,20 @@
+procedure SacarTodas_(colorASacar){
+	/*
+	Proposito: Sacar todas las bolitas del color "colorASacar " dado
+	Parametrós:
+	 colorASacar tipo color, es el color de las bolitas que deceamos eliminar del tablero
+	Precondición:ninguna
+	*/
+	repeat( cantidadDeBolitasDeColor_(colorASacar)){
+	Sacar(colorASacar)
+	}
+}
+function cantidadDeBolitasDeColor_(colorDeLaBolita){
+	/*
+	Proposito: Describe la cantidad de bolitas de color "colorDeLaBolita" que hay en la celda actual
+	Precondición:ninguna
+	Parametros:
+	 colorDeLaBolita tipo Color, es el color de las bolitas que deceamos contar
+	*/
+	return (nroBolitas(colorDeLaBolita))
+}

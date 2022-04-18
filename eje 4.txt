@@ -1,0 +1,124 @@
+procedure Poner_Semillas(cantidadDeSemillasAPoner){
+	/*
+	Propósito: Poner la cantidad "cantidadDeSemillasAPoner"  de semillas en la celda actual
+	Paramétros:
+	 cantidadDeSemillasAPoner tipo Número, es la cantidad de semillas que queremos poner.
+	Precondición:ninguna
+	*/
+	repeat(cantidadDeSemillasAPoner){
+	Poner(Rojo)
+	}
+}
+
+procedure Sacar_Semillas(cantidadDeSemillasASacar){
+	/*
+	Propósito: Sacar la cantidad "cantidadDeSemillasASacar"  de semillas en la celda actual
+	Paramétros:
+	 cantidadDeSemillasASacar tipo Número, es la cantidad de semillas que queremos sacar.
+	Precondición: 
+	> debe haber almenos "cantidadDeSemillasASacar" de semillas en la celda actual
+	*/
+	repeat(cantidadDeSemillasASacar){
+	Sacar(Rojo)
+	}
+}
+procedure Poner_Árboles(cantidadDeÁrbolesAPoner){
+	/*
+	Propósito: Poner la cantidad "cantidadDeÁrbolesAPoner"  de arboles en la celda actual
+	Paramétros:
+	 cantidadDeÁrbolesAPoner tipo Número, es la cantidad de arboles que queremos poner.
+	Precondición:ninguna
+	*/
+	repeat(cantidadDeÁrbolesAPoner){
+	Poner(Verde)
+	}
+}
+procedure Sacar_Árboles(cantidadDeÁrbolesASacar){
+	/*
+	Propósito: Sacar la cantidad "cantidadDeÁrbolesASacar"  de semillas en la celda actual
+	Paramétros:
+	 cantidadDeÁrbolesASacar tipo Número, es la cantidad de arboles que queremos sacar.
+	Precondición: 
+	> debe haber almenos "cantidadDeÁrbolesASacar" de arboles en la celda actual.
+	*/
+	repeat(cantidadDeÁrbolesASacar){
+	Sacar(Verde)
+	}
+}
+procedure PonerBomba(){
+	/*
+	Propósito: Poner una bomba.
+	Paramétros:ninguna
+	Observación: Las bombas se representan con una bolita de color negra
+	Precondición:
+	 -que no haya ninguna otra representación en la celda actual
+	*/
+	Poner(Negro)
+}
+procedure SacarBomba(){
+	/*
+	Propósito: Sacar una bomba.
+	Paramétros:ninguna
+	Precondición:
+	 -que haya almenos una bomba en la celda actual
+	*/
+	Sacar(Negro)
+}
+
+
+procedure Poner_Nutrientes(cantidadDeNutrientesAPoner){
+	/*
+	Propósito: Poner la cantidad "cantidadDeNutrientesAPoner"  de Nutrientes en la celda actual
+	Paramétros:
+	 cantidadDeNutrientesAPoner tipo Número, es la cantidad de nutrientes que queremos poner.
+	Precondición:ninguna
+	*/
+	repeat(cantidadDeNutrientesAPoner){
+	Poner(Azul)
+	}
+}
+procedure Sacar_Nutrientes(cantidadDeNutrientesASacar){
+	/*
+	Propósito: Sacar la cantidad "cantidadDeNutrientesASacar"  de semillas en la celda actual
+	Paramétros:
+	 cantidadDeNutrientesASacar tipo Número, es la cantidad de nutrientes que queremos sacar.
+	Precondición: 
+	> debe haber almenos "cantidadDeNutrientesASacar" de nutrientes en la celda actual.
+	*/
+	repeat(cantidadDeNutrientesASacar){
+	Sacar(Azul)
+	}
+}
+
+procedure Poner_SemillasAl_(cantidad, dirección){
+	/*
+	Propósito: Poner una "cantidad" de semillas en la celda lindante en la dirección "dirección" dada
+	Paramétro:
+	 -cantidad tipo Número, es la cantidad de semillas que queremos poner.
+	 -dirección tipo Dirección, es la dirección a la cual deceamos colocar la semilla.
+	Precondición:
+	 >no debe haber ninguna otra representacion que no sea de semillas en la celda actual.
+	 >debe haber almenos una celda lindante en la dirección "dirección" dada
+	*/
+	Mover(dirección) 
+	repeat(cantidad){
+	Poner(Rojo)
+	}
+	Mover(opuesto(dirección)) //regresa el cabezal al inicio
+}
+
+procedure Sacar_ÁrbolesAl_(cantidad, dirección){
+	/*
+	Propósito: Sacar una "cantidad" de semillas en la celda lindante en la dirección "dirección" dada
+	Paramétro:
+	 -cantidad tipo Número, es la cantidad de semillas que queremos sacar.
+	 -dirección tipo Dirección, es la dirección a la cual deceamos sacar la semilla.
+	Precondición:
+	 >debe haber almenos una celda lindante en la dirección "dirección" dada
+	 >debe haber almenos la cantidad "cantidad" de arboles en la celda lindante en la dirección "dirección"
+	*/
+	Mover(dirección) 
+	repeat(cantidad){
+	Sacar(Verde)
+	}
+}

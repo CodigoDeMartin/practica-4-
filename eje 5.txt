@@ -1,0 +1,79 @@
+procedure PasarPalabraActualAMayúsculas(){
+	/*
+	Propósito: transcribe una palabra que esta en minuscula a mayuscula.
+	Paramétros:ninguna
+	Precondición:
+	 >debe haber almenos una celda al norte de la posición actual del cabezal
+	*/
+	ProcesarCantidadDeLetrasDeLaPalabraYTranscribirAMayuscula()
+	RegresarElCabezalAlInicioDeLaPalabra()
+}
+procedure ProcesarCantidadDeLetrasDeLaPalabraYTranscribirAMayuscula(){
+	/*
+	Proposito: Transcribir la palabra a mayuscula según la cantidad de letras que contenga.
+	Parametros: ninguno
+	Precondicón:
+	  >debe haber almenos una celda al norte por cada letra que haya en la palabra.
+	*/
+	repeat(cantidadDeLetrasQueContieneLaPalabra()){
+	PasarAlaSiguienteLetra()
+	PasarLetraActualAMayusculaYEscribirlaEnLaCeldaLindanteNorte()
+	}
+}
+procedure PasarLetraActualAMayusculaYEscribirlaEnLaCeldaLindanteNorte(){
+	/*
+	Proposito: Pasar la letra de la celda actual a mayuscula y escribirla en la celda lindante norte
+	Parametros: ninguno
+	Precondicón:
+	 debe haber almenos una letra en minuscula en la celda actual.
+	 debe haber almenoss una celda lindante al norte de la posición actual del cabezal
+	*/
+	Mover(Norte)
+	AgregarLetra_EnLaCeldaActual( letraDeLaceldaSurPeroEnMayuscula() )
+	Mover(Sur) // regresar el cabezal
+}
+procedure AgregarLetra_EnLaCeldaActual(letraAAgregar){
+	/*
+	Propósito: Colocar la letra "letraAAgregar" en la celda actual
+	Paramétros:
+	 letraAAgregar tipo Número, es la letra que deceamos colocar en la palabra 
+	Precondición:ninguna
+	*/
+	Poner__Veces( Negro, letraAAgregar )
+}
+function letraDeLaceldaSurPeroEnMayuscula()  {
+	/*
+	Propósito: describe la letra de la celda lindante al sur pero en Mayuscula.
+	Parametros:ninguna
+	Precondición:
+	 >debe haber almenos una celda lindante al sur de la posición actual del cabezal.
+	 >debe heber almenos una letra en minuscula en la celda lindante al sur 
+	*/
+	Mover(Sur)
+	return (nroBolitas(Negro) - 32)
+}
+function cantidadDeLetrasQueContieneLaPalabra(){
+	/*
+	Propósito: describe la cantidad de letras que contiene la palabra 
+	Paramétros:ninguno
+	Precondición:ninguna
+	*/
+	return (nroBolitas(Rojo))
+}
+procedure RegresarElCabezalAlInicioDeLaPalabra(){
+	/*
+	Propósito: Regresar el cabezal al inicio de la palabra 
+	Paramétros:ninguno
+	Precondición:ninguna
+	*/
+	IrAlBorde(Oeste)
+}
+procedure PasarAlaSiguienteLetra(){
+	/*
+	Propósito: Pasar a la siguiente letra
+	Paramétros:ninguno
+	Precondición:
+	 >debe haber almenos una celda lindante al este de la posición actual del cabezal.
+	*/
+	Mover(Este)
+}

@@ -1,0 +1,73 @@
+eje 1
+
+program {
+	/*
+	Propósito:
+	Paramétro:
+	Precondición:
+	*/
+}
+
+procedure DibujarBanda_EnDiagonalNEDe_x_(color, alto, largo){
+	/*
+	Propósito: Dibujar una banda en diagona Noro-Este de color "color" de alto "alto" de largo "largo" dado
+	Paramétro:
+	  -color de tipo Color , es el color de la banda
+	  -alto de tipo Número, es el alto de la diagonal
+	  -largo de tipo Número, es el largo de la diagonal
+	Precondición:
+	 >debe haber la cantidad de celdas "largo+alto-1" al Norte de la poscicion actual del cabezal.
+	 >debe haber almenos la cantidad "largo-1" al Este de la posición actual del cabezal
+	*/
+	repeat(alto){
+	    DibujarUnaBanda_EnDiagonalNoroEsteDeLargo_(color, largo)
+	    Mover(Norte)
+	}
+
+}
+
+procedure DibujarUnaBanda_EnDiagonalNoroEsteDeLargo_(colorDeLaDiagonal, largoDeLaDiagonal){
+	/*
+	Propósito: Dibujar una banda de color "colorDeLaDiagonal" de largo "largoDeLaDiagonal" dado
+	Paramétro:
+	 -colorDeLaDiagonal tipo Color, es el color de la diagonal
+	 -largoDeLaDiagonal tipo Número, es el largo de la diagonal.
+	Precondición: 
+	 >debe haber almenos la cantidad "largoDeLaDiagonal" de celdas al este de la posición actual del cabezal.
+	 >debe haber almenos la cantidad "largoDeLaDiagonal" de celdas al Norte de la posición actual del cabezal.
+	*/
+	repeat(largoDeLaDiagonal){
+		PonerEscalonDeLaDiagonallEnDireccionNoroEsteDeColor_YMoverNorte(colorDeLaDiagonal)
+	    }
+
+	RegresarElCabezalAlInicioDeLaBandaDeLargo(largoDeLaDiagonal)
+
+}
+
+procedure PonerEscalonDeLaDiagonallEnDireccionNoroEsteDeColor_YMoverNorte(colorDeEscalones){
+	/*
+	Propósito: Poner un escalon de la diagonal en dirección Norte y Este de color "colorDeEscalones" dado
+	Paramétro:
+	 -colorDeEscalones tipo Color, es el color de un escalon
+	Precondición:
+	 >debe haber almenos una celda al Este de la posición actual del cabezal
+	 >debe haber almenos una cela al Norte de la posición actual del cabezal
+	*/
+		Poner(colorDeEscalones)
+		Mover(Este)
+		Mover(Norte)
+}
+
+procedure RegresarElCabezalAlInicioDeLaBandaDeLargo(largoDeLaBanda){
+	/*
+	Propósito: Regresar al cabezal al incio de la banda de largo "largoDeLaBanda" dada
+	Paramétro:
+	 largoDeLaBanda tipo Número, es el largo de la banda
+	Precondición:
+	 -debe haber almenos "largoDeLaBanda" en la direccion Sur y Oeste.
+	*/
+	repeat(largoDeLaBanda){
+	Mover(Sur)
+	Mover(Oeste)
+	}
+}
